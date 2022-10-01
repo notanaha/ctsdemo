@@ -1,4 +1,4 @@
-// The following variables are referenced from keyphrases.js
+// The following variables are referencing to keyphrases.js
 // const langCode = "ja";
 // const languageKey = '<-- language-key -->>';
 // const languageEndpoint = 'https://<-- language-endpoint -->/';
