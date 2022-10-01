@@ -1,2 +1,2 @@
 # ctsdemo
-Conversation Transcription Service with Custom Text Classification by Azure Cognitive Services
+Conversation Transcription Service with Custom Text Classification Powered by Azure Cognitive Services
