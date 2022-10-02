@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Speech Sample</title>
+</head>
+<body class="bg-light">
+
+    <!-- INPUT FILE -->
+    <div>
+        <form id="form">
+            <input type="file" id="file" name="file">
+        </form>
+    </div>
+
+    <!-- ORIGINAL -->
+    <div class="w-75">
+        <h1 class="text-right text-info my-4">Conversation Transcription</h1>
+    </div>
+    
+    <div id="content" style="display:none">
+        <table>
+            <tr>
+                <td float:right><b></b></td>
+                <td>
+                    <button id="scenarioStartButton">Start</button>
+                    <button id="scenarioStopButton" disabled="disabled">Stop</button>
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+                <th>Conversation</th>
+                <th></th>
+                <th>Key Phrases</th>
+            </tr>
+            <tr>
+                <td float:right>Results:</td>
+                <td float:left>
+                    <textarea id="phraseDiv" style="display: inline-block;width:500px;height:200px;overflow:scroll"></textarea>
+                </td>
+                <!-- KeyPhrase-->
+                <td rowspan="3">&nbsp;</td>
+                <td>
+                    <textarea id="KeyphraseDiv" style="display: inline-block;width:500px;height:200px;overflow: scroll"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td float:right>Events:</td>
+                <td float:left>
+                    <textarea id="statusDiv"
+                        style="display: inline-block;width:500px;height:200px;overflow:scroll;white-space: nowrap;">
+                    </textarea>
+                </td>
+            </tr>
+        </table> 
+    </div>
+
+    <!-- Speech SDK REFERENCE -->
+    <script src="https://aka.ms/csspeech/jsbrowserpackageraw"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Speech SDK presence check -->
+    <script>
+        // On document load resolve the Speech SDK dependency
+        function Initialize(onComplete) {
+            if (!!window.SpeechSDK) {
+                document.getElementById('content').style.display = 'block';
+                onComplete(window.SpeechSDK);
+            }
+        }
+    </script>
+    <script src="browserHook.js"></script>
+    <script src="onEvents.js"></script>
+    <script src="speechRecognition.js"></script>
+    <script src="keyphrases.js"></script>
+</body>
+</html>
