@@ -13,8 +13,7 @@ function doContinuousRecognition() {
     }
 
     var speechConfig = SpeechSDK.SpeechConfig.fromSubscription(speech_key, regionOptions);
-    //var speechConfig = SpeechSDK.SpeechTranslationConfig.fromSubscription(speech_key, regionOptions);
-
+    speechConfig.setProperty("<----- CTS Private Preview Key ----->", "true");
     speechConfig.setProperty("ConversationTranscriptionInRoomAndOnline", "true");
     speechConfig.setProperty("DifferentiateGuestSpeakers", "true");
     speechConfig.setProperty("TranscriptionService_SingleChannel", "true");
